@@ -1,0 +1,73 @@
+<div class="title">
+  <h1>{{ title }}</h1>
+</div>
+
+<mat-divider></mat-divider>
+<br />
+<br />
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Random Number</mat-label>
+    <input
+      matInput
+      id="random"
+      name="random"
+      [(ngModel)]="random"
+      placeholder="Enter X"
+      value=""
+    />
+  </mat-form-field>
+  <div class="center"></div>
+  <button class="btn btn-info" type="button" (click)="numToRgb(random)">
+    Generate
+  </button>
+  <br />
+  <br />
+  <button class="btn btn-primary" (click)="downloadImage()">Download</button>
+  <!-- <h3>{{ random }}</h3> -->
+</form>
+
+<div class="container">
+  <div class="grid">
+    <div
+      class="cell"
+      name="random"
+      *ngFor="let g of green; let i = index"
+      style.background="rgb({{ red[i] }}, {{ green[i] }}, 0)"
+    >
+      {{ i }}
+    </div>
+
+    <div id="download">
+      <a #downloadLink></a>
+    </div>
+
+    <!--     
+        <div class="cell" id="1">1</div>
+    <div class="cell" id="2">2</div>
+    <div class="cell" id="3">3</div>
+    <div class="cell" id="4">4</div>
+    <div class="cell" id="5">5</div>
+    <div class="cell" id="6">6</div>
+    <div class="cell" id="7">7</div>
+    <div class="cell" id="8">8</div>
+    <div class="cell" id="10">1</div>
+    <div class="cell" id="11">2</div>
+    <div class="cell" id="12">3</div>
+    <div class="cell" id="13">4</div>
+    <div class="cell" id="14">5</div>
+    <div class="cell" id="15">6</div>
+    <div class="cell" id="16">7</div>
+    <div class="cell" id="17">8</div>
+    <div class="cell" id="18">9</div>
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+    <div class="cell">7</div>
+    <div class="cell">8</div>
+    <div class="cell">9</div> -->
+  </div>
+</div>
