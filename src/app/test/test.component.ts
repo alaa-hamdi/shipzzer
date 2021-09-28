@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import html2canvas from 'html2canvas';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -13,9 +14,8 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  @ViewChild('container') container: ElementRef;
-  @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('downloadLink') downloadLink: ElementRef;
+  //@ViewChild('grid') grid: ElementRef;
 
   title: string = 'Test Technique Shipzzer';
   multi: number[][];
@@ -41,18 +41,16 @@ export class TestComponent implements OnInit {
   }
 
   numToRgb(x) {
-    console.log(x);
+    this.green = [];
+    this.red = [];
     this.random = x;
-    //let multi_dim: number[][];
 
-    //this.numbers = this.generateXRandomNumbers(x);
     this.numbers = this.generateXRandomNumbers(this.random);
     for (let i = 0; i < this.random; i++) {
       if (this.numbers[i] < 0) {
         let green = (this.numbers[i] * 255) / 100;
         green = Math.round(green);
         green = Math.abs(green);
-        // multi_dim[i] = [0, green, 0];
         this.green.push(green);
         this.red.push(0);
       } else if (this.numbers[i] > 0) {
@@ -60,14 +58,11 @@ export class TestComponent implements OnInit {
         red = Math.round(red);
         this.red.push(red);
         this.green.push(0);
-        //multi_dim[i] = [red, 0, 0];
       } else {
         this.green.push(0);
         this.red.push(0);
-        //multi_dim[i] = [0, 0, 0];
       }
     }
-    //this.multi = multi_dim;
   }
 
   downloadImage() {
@@ -77,4 +72,15 @@ export class TestComponent implements OnInit {
       this.downloadLink.nativeElement.click();
     });
   }
+
+  /*   removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  } */
+
+  /*   clear() {
+    this.green = [];
+    this.red = [];
+  } */
 }

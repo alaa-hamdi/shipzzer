@@ -15,6 +15,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { ContenteditableModule } from '@ng-stack/contenteditable';
 
 @NgModule({
   declarations: [AppComponent, TestComponent],
@@ -27,6 +28,7 @@ import {
     BrowserAnimationsModule,
     FormsModule,
     MatDividerModule,
+    ContenteditableModule,
   ],
   exports: [
     MatButtonModule,
